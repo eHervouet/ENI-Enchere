@@ -6,6 +6,12 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<script src="https://use.fontawesome.com/9de3b4962a.js"></script>
+<style>
+	input, label {
+    display:block;
+}
+</style>
 <title>ENI-Enchere</title>
 </head>
 <body>
@@ -20,7 +26,7 @@
 			  <a class="nav-link" href="">Se connecter</a>
 			</li>
 			<li>  
-			  <a class="nav-link" href="">Créer un compte</a>
+			  <a class="nav-link" href="/ENI-Enchere/creationCompte">Créer un compte</a>
 		  	</li>
 	 	</ul>
 	</nav>
@@ -34,20 +40,23 @@
 		
 		<div class="row">
 			<div class="col">
+				<input type="search" name="search" placeholder="Rechercher..."><br/>
+				<label for="categorie">Catégorie :</label>
 				<select name="categories">
 					<option value=""></option>
+					<option value="all">Toutes</option>
 					<c:forEach var="cat" items="${listeCategories}">
 								
-									<option value="${cat.no_categorie}">${cat.libelle}</option>
+						<option value="${cat.no_categorie}">${cat.libelle}</option>
 								
 					</c:forEach>
 				</select>
 			</div>
 			<div class="col">
+				<button class="btn btn-primary btn-lg" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button><br/>
 			</div>
 		</div>	
 	</div>
-	
 	
 </body>
 </html>
