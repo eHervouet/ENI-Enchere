@@ -18,7 +18,7 @@ import bo.Categorie;
  * Servlet implementation class AccueilServlet
  */
 @WebServlet("/")
-public class AccueilServlet extends HttpServlet {
+public class ServletAccueil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
