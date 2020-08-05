@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bll.CategorieManager;
+import bll.EnchereManager;
 import bo.Categorie;
+import bo.Enchere;
 
 /**
  * Servlet implementation class AccueilServlet
@@ -28,7 +30,11 @@ public class ServletAccueil extends HttpServlet {
 		CategorieManager cm = new CategorieManager();
 		List<Categorie> lc = cm.selectAll();
 		
+		EnchereManager em = new EnchereManager();
+		List<Enchere> le = em.selectAll();
+		
 		request.setAttribute("listeCategories", lc);
+		request.setAttribute("listeEncheres", le);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
 		rd.forward(request, response);
