@@ -66,22 +66,30 @@
 		
 		<div class="row">
 			<div class="col">
-				<input type="search" name="search" placeholder="Rechercher..."><br/>
+				<label for="search">Filtres :</label>
+				<input type="search" name="search" placeholder="Le nom de l'article contient"><br/>
 				<label for="categorie">Catégorie :</label>
 				<select name="categories">
-					<option value=""></option>
 					<option value="all">Toutes</option>
-					<c:forEach var="cat" items="${listeCategories}">
-								
-						<option value="${cat.no_categorie}">${cat.libelle}</option>
-								
+					<c:forEach var="cat" items="${listeCategories}">		
+						<option value="${cat.no_categorie}">${cat.libelle}</option>	
 					</c:forEach>
 				</select>
 			</div>
 			<div class="col">
 				<button class="btn btn-success btn-lg" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button><br/>
 			</div>
-		</div>	
+		</div><br />
+		<div class="row justify-content-center" style="">
+			<c:forEach var="enchere" items="${listeEncheres}">
+			 <div class="col-lg-5" style="background-color : blue; color: white; margin: 15px; align: center;">
+			 	6 colonnes
+			 	<p>numéro article : ${enchere.getNo_article()}</p>
+			 	<p>numéro utilisateur : ${enchere.getNo_utilisateur()}</p>
+			</div>
+		</c:forEach>	
+		</div>
+			
 	</div>
 	
 </body>
