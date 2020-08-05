@@ -79,7 +79,7 @@
 				</select>
 			</div>
 			<div class="col">
-				<button class="btn btn-sucess btn-lg" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button><br/>
+				<button class="btn btn-success btn-lg" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button><br/>
 			</div>
 		</div>	
 	</div>

@@ -43,7 +43,13 @@ public class ServletCreationCompte extends HttpServlet {
 		
 		UtilisateurManager um = new UtilisateurManager();
 		Utilisateur utilisateur = new Utilisateur(pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, 0, false);
-		um.nouvelUtilisateur(utilisateur);
+		if(um.nouvelUtilisateur(utilisateur)) {
+			RequestDispatcher rd = request.getRequestDispatcher("/connexion");
+			rd.forward(request, response);
+		} else {
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/creationCompte.jsp");
+			rd.forward(request, response);
+		}
 	}
 
 }

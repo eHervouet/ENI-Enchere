@@ -92,6 +92,9 @@
 				<div class="col-6">
 					<input class="btn btn-success btn-lg" type="submit" value="Créer mon compte">
 				</div>
+				<div class="col-6">
+					<button class="btn btn-danger btn-lg" type="button" onclick="location.href='/ENI-Enchere/';" formnovalidate>Annuler</button>
+				</div>
 			</div>				
 		</form>
 	</div>

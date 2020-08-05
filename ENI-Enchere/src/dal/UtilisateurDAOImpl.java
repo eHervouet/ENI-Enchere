@@ -11,17 +11,22 @@ import bo.Utilisateur;
 public class UtilisateurDAOImpl implements UtilisateurDAO {
 
 	@Override
-	public void nouvelUtilisateur(Utilisateur utilisateur) {
+	public boolean nouvelUtilisateur(Utilisateur utilisateur) {
 		final String INSERT="INSERT INTO utilisateurs(pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur) VALUES ('"+utilisateur.getPseudo()+"', '"+ utilisateur.getNom()+"', '"+utilisateur.getPrenom()+"', '"+utilisateur.getEmail()+"', '"+utilisateur.getTelephone()+"', '"+utilisateur.getRue()+"', '"+utilisateur.getCode_postal()+"', '"+utilisateur.getVille()+"', '"+utilisateur.getMot_de_passe()+"', 0, "+(utilisateur.getAdministrateur() ? "1" : "0")+");";
-
+		boolean vreturn = false;
+		
 		try(Connection cnx = ConnectionProvider.getConnection())
 		{
 			Statement stmt = cnx.createStatement();
-			stmt.executeQuery(INSERT);
+			int i = stmt.executeUpdate(INSERT);
+			if (i > 0) {
+				vreturn = true;
+			}
 			
 		} catch(Exception e) {
 			System.out.print(e.getMessage());
 		}
+		return vreturn;
 	}
 	
 	@Override
