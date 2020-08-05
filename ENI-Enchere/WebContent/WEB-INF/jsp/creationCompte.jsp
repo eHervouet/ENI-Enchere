@@ -88,6 +88,11 @@
 				</div>
 			</div>
 			<br/>
+			<div class="row justify-content-center">
+		  		<div class="col text-center">
+		  			<span style="color : red; text-decoration : underline;">${error}</span>
+		  		</div>
+		  	</div>
 			<div class="row">
 				<div class="col-6">
 					<input class="btn btn-success btn-lg" type="submit" value="Créer mon compte">
