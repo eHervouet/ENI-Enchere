@@ -51,7 +51,7 @@
 					  <a class="nav-link" href="">${sessionScope.identifiant}</a>
 					</li>
 					<li>  
-					  <a class="nav-link" href="">Déconnexion</a>
+					  <a class="nav-link" href="/ENI-Enchere/deconnexion">Déconnexion</a>
 				  	</li>
 			 	</ul>
 		</nav>
