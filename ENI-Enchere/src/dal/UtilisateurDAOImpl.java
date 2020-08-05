@@ -49,5 +49,47 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 		
 		return vreturn;
 	}
+	
+	@Override
+	public boolean identifiantLibre(String identifiant) {
+		final String SELECT="SELECT COUNT(*) as count FROM utilisateurs WHERE pseudo = '"+identifiant+"';";
+		boolean vreturn = true;
+		try(Connection cnx = ConnectionProvider.getConnection()) {
+			Statement stmt = cnx.createStatement();
+			ResultSet rs = stmt.executeQuery(SELECT);
+
+			rs.next();
+			
+			if(rs.getInt("count") > 0) {
+				vreturn = false;
+			}
+			
+		} catch(Exception e) {
+			System.out.print(e.getMessage());
+		}
+		
+		return vreturn;
+	}
+	
+	@Override
+	public boolean emailLibre(String email) {
+		final String SELECT="SELECT COUNT(*) as count FROM utilisateurs WHERE email = '"+email+"';";
+		boolean vreturn = true;
+		try(Connection cnx = ConnectionProvider.getConnection()) {
+			Statement stmt = cnx.createStatement();
+			ResultSet rs = stmt.executeQuery(SELECT);
+
+			rs.next();
+			
+			if(rs.getInt("count") > 0) {
+				vreturn = false;
+			}
+			
+		} catch(Exception e) {
+			System.out.print(e.getMessage());
+		}
+		
+		return vreturn;
+	}
 
 }
