@@ -18,7 +18,7 @@
 	
 		<ul class="navbar-nav mr-auto">
 			<li>
-			  <a class="nav-link" href="">Se connecter</a>
+			  <a class="nav-link" href="/ENI-Enchere/connexion">Se connecter</a>
 			</li>
 			<li>  
 			  <a class="nav-link" href="/ENI-Enchere/creationCompte">Créer un compte</a>
@@ -32,64 +32,65 @@
 				<h2 style="text-decoration : underline;">Création de compte</h2>
 			</div>
 		</div>
-		<form method="POST" action="/ENI-Enchere/creationCompte">
+		<form method="POST" action="/ENI-Enchere/creationCompte" class='form-horizontal'>
 			<div class="row">
 				<div class="col-6">
-					<label for="pseudo">Pseudo : </label>
+					<label for="pseudo">Pseudo : </label><br/>
 					<input type="text" name="pseudo" maxlength="30" required />
 				</div>
 				<div class="col-6">
-					<label for="nom">Nom : </label>
-					<input type="text" name="nom" maxlength="30" required />
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="col-6">
-					<label for="prenom">Prenom : </label>
-					<input type="text" name="prenom" maxlength="30" required />
-				</div>
-				<div class="col-6">
-					<label for="email">Email : </label>
+					<label for="email">Email : </label><br/>
 					<input type="text" name="email" maxlength="20" required />
 				</div>
 			</div>
 			
 			<div class="row">
 				<div class="col-6">
-					<label for="telephone">Téléphone : </label>
-					<input type="text" name="telephone" maxlength="15" required />
+					<label for="nom">Nom : </label><br/>
+					<input type="text" name="nom" maxlength="30" required />
 				</div>
 				<div class="col-6">
-					<label for="rue">Rue : </label>
+					<label for="telephone">Téléphone : </label><br/>
+					<input type="text" name="telephone" maxlength="15" required />
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-6">
+					<label for="prenom">Prenom : </label><br/>
+					<input type="text" name="prenom" maxlength="30" required />
+				</div>
+				<div class="col-6">
+					<label for="rue">Rue : </label><br/>
 					<input type="text" name="rue" maxlength="30" required />
 				</div>
 			</div>
 			
 			<div class="row">
 				<div class="col-6">
-					<label for="code_postal">Code postal : </label>
-					<input type="text" name="code_postal" maxlength="10" required />
+					<label for="mot_de_passe">Mot de passe : </label><br/>
+					<input type="password" name="mot_de_passe" maxlength="30" required />
 				</div>
 				<div class="col-6">
-					<label for="ville">Ville : </label>
+					<label for="ville">Ville : </label><br/>
 					<input type="text" name="ville" maxlength="30" required />
 				</div>
 			</div>
 			
 			<div class="row">
 				<div class="col-6">
-					<label for="mot_de_passe">Mot de passe : </label>
-					<input type="password" name="mot_de_passe" maxlength="30" required />
-				</div>
-				<div class="col-6">
-					<label for="mot_de_passe_confirmation">Confirmation : </label>
+					<label for="mot_de_passe_confirmation">Confirmation : </label><br/>
 					<input type="password" name="mot_de_passe_confirmation" maxlength="30" required />
 				</div>
+				<div class="col-6">
+					<label for="code_postal">Code postal : </label><br/>
+					<input type="text" name="code_postal" maxlength="10" required />
+				</div>
 			</div>
+			<br/>
 			<div class="row">
-				<div class="col-12 text-center">
-					<input class="btn btn-primary btn-lg" type="submit" value="Créer mon compte">
+				<div class="col-6">
+					<input class="btn btn-success btn-lg" type="submit" value="Créer mon compte">
 				</div>
 			</div>				
 		</form>

@@ -1,8 +1,6 @@
 package Servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,27 +8,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import bll.CategorieManager;
-import bo.Categorie;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class AccueilServlet
+ * Servlet implementation class ServletDeconnexion
  */
-@WebServlet("/")
-public class AccueilServlet extends HttpServlet {
+@WebServlet("/deconnexion")
+public class ServletDeconnexion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		CategorieManager cm = new CategorieManager();
-		List<Categorie> lc = cm.selectAll();
-		
-		request.setAttribute("listeCategories", lc);
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
+		HttpSession session = request.getSession();
+		session.removeAttribute("identifiant");
+		RequestDispatcher rd = request.getRequestDispatcher("/");
 		rd.forward(request, response);
 	}
 

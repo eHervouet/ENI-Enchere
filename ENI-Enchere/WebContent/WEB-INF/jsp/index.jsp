@@ -15,22 +15,48 @@
 <title>ENI-Enchere</title>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	  <a class="navbar-brand" href="/ENI-Enchere/">ENI-Encheres</a>
-	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon"></span>
-	  </button>
-	
-		<ul class="navbar-nav mr-auto">
-			<li>
-			  <a class="nav-link" href="">Se connecter</a>
-			</li>
-			<li>  
-			  <a class="nav-link" href="/ENI-Enchere/creationCompte">Créer un compte</a>
-		  	</li>
-	 	</ul>
-	</nav>
-	
+<c:choose>
+	<c:when test="${empty sessionScope.identifiant }">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			  <a class="navbar-brand" href="/ENI-Enchere/">ENI-Encheres</a>
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="navbar-toggler-icon"></span>
+			  </button>
+			
+				<ul class="navbar-nav mr-auto">
+					<li>
+					  <a class="nav-link" href="/ENI-Enchere/connexion">Se connecter</a>
+					</li>
+					<li>  
+					  <a class="nav-link" href="/ENI-Enchere/creationCompte">Créer un compte</a>
+				  	</li>
+			 	</ul>
+		</nav>
+	</c:when>
+	<c:otherwise>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			  <a class="navbar-brand" href="/ENI-Enchere/">ENI-Encheres</a>
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="navbar-toggler-icon"></span>
+			  </button>
+			
+				<ul class="navbar-nav mr-auto">
+					<li>
+					  <a class="nav-link" href="">Enchère</a>
+					</li>
+					<li>
+					  <a class="nav-link" href="">Vendre un article</a>
+					</li>
+					<li>
+					  <a class="nav-link" href="">${sessionScope.identifiant}</a>
+					</li>
+					<li>  
+					  <a class="nav-link" href="/ENI-Enchere/deconnexion">Déconnexion</a>
+				  	</li>
+			 	</ul>
+		</nav>
+	</c:otherwise>
+</c:choose>		
 	<div class="container">
 		<div class="row">
 			<div class="col">
@@ -53,7 +79,7 @@
 				</select>
 			</div>
 			<div class="col">
-				<button class="btn btn-primary btn-lg" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button><br/>
+				<button class="btn btn-sucess btn-lg" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button><br/>
 			</div>
 		</div>	
 	</div>

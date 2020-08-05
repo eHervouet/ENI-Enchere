@@ -15,4 +15,8 @@ public class UtilisateurManager {
 	public void nouvelUtilisateur(Utilisateur utilisateur) {
 		this.utilisateurDAO.nouvelUtilisateur(utilisateur);
 	}
+	
+	public boolean connexion(String identifiant, String mot_de_passe) {
+		return this.utilisateurDAO.connexion(identifiant, mot_de_passe);
+	}
 }

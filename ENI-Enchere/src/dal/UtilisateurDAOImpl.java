@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
+
 import bo.Utilisateur;
 
 public class UtilisateurDAOImpl implements UtilisateurDAO {
@@ -11,15 +13,36 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 	@Override
 	public void nouvelUtilisateur(Utilisateur utilisateur) {
 		final String INSERT="INSERT INTO utilisateurs(pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur) VALUES ('"+utilisateur.getPseudo()+"', '"+ utilisateur.getNom()+"', '"+utilisateur.getPrenom()+"', '"+utilisateur.getEmail()+"', '"+utilisateur.getTelephone()+"', '"+utilisateur.getRue()+"', '"+utilisateur.getCode_postal()+"', '"+utilisateur.getVille()+"', '"+utilisateur.getMot_de_passe()+"', 0, "+(utilisateur.getAdministrateur() ? "1" : "0")+");";
-		System.out.print(INSERT);
+
 		try(Connection cnx = ConnectionProvider.getConnection())
 		{
 			Statement stmt = cnx.createStatement();
-			ResultSet rs = stmt.executeQuery(INSERT);
+			stmt.executeQuery(INSERT);
 			
 		} catch(Exception e) {
 			System.out.print(e.getMessage());
 		}
+	}
+	
+	@Override
+	public boolean connexion(String identifiant, String mot_de_passe) {
+		final String SELECT="SELECT COUNT(*) as count FROM utilisateurs WHERE pseudo = '"+identifiant+"' AND mot_de_passe = '"+mot_de_passe+"'";
+		boolean vreturn = false;
+		try(Connection cnx = ConnectionProvider.getConnection()) {
+			Statement stmt = cnx.createStatement();
+			ResultSet rs = stmt.executeQuery(SELECT);
+
+			rs.next();
+			
+			if(rs.getInt("count") > 0) {
+				vreturn = true;
+			}
+			
+		} catch(Exception e) {
+			System.out.print(e.getMessage());
+		}
+		
+		return vreturn;
 	}
 
 }
