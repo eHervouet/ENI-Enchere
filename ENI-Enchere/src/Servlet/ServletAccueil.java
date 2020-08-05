@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bll.ArticleManager;
 import bll.CategorieManager;
 import bll.EnchereManager;
+import bo.Article;
 import bo.Categorie;
 import bo.Enchere;
 
@@ -30,11 +32,11 @@ public class ServletAccueil extends HttpServlet {
 		CategorieManager cm = new CategorieManager();
 		List<Categorie> lc = cm.selectAll();
 		
-		EnchereManager em = new EnchereManager();
-		List<Enchere> le = em.selectAll();
+		ArticleManager am = new ArticleManager();
+		List<Article> la = am.selectAll();
 		
 		request.setAttribute("listeCategories", lc);
-		request.setAttribute("listeEncheres", le);
+		request.setAttribute("listeArticles", la);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
 		rd.forward(request, response);

@@ -81,11 +81,19 @@
 			</div>
 		</div><br />
 		<div class="row justify-content-center" style="">
-			<c:forEach var="enchere" items="${listeEncheres}">
+			<c:forEach var="article" items="${listeArticles}">
 			 <div class="col-lg-5" style="background-color : blue; color: white; margin: 15px; align: center;">
-			 	6 colonnes
-			 	<p>numéro article : ${enchere.getNo_article()}</p>
-			 	<p>numéro utilisateur : ${enchere.getNo_utilisateur()}</p>
+			 	<div class="row justify-content-center" style="">
+			 		<div class="col-lg-3" style="background-color : red; color: white; margin: 15px; align: center;">
+			 			<img class="fit-picture" src="${article.getPath_photo()}" alt="image article">
+			 		</div>
+			 		<div class="col-lg-7" style="background-color : green; color: white; margin: 15px; align: center;">
+			 			<p style="text-decoration: underline;">${article.getNom_article()}</p>
+			 			<p>Prix : ${article.getPrix_initial()}</p>
+			 			<p>Fin de l'enchère :  ${article.getDate_fin_encheres()}</p>
+			 			<p>Vendeur :  ${article.getNo_utilisateur()}</p>
+			 		</div>
+			 	</div>
 			</div>
 		</c:forEach>	
 		</div>

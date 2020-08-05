@@ -15,6 +15,23 @@ public class Article implements Serializable{
 	private int prix_vente;
 	private int no_utilisateur;
 	private int no_categorie;
+	private String path_photo;
+	
+	public Article(int no_article, String nom_article, String description, Date date_debut_encheres,
+            Date date_fin_encheres, int prix_initial, int prix_vente, int no_utilisateur, int no_categorie,
+            String path_photo) {
+        super();
+        this.no_article = no_article;
+        this.nom_article = nom_article;
+        this.description = description;
+        this.date_debut_encheres = date_debut_encheres;
+        this.date_fin_encheres = date_fin_encheres;
+        this.prix_initial = prix_initial;
+        this.prix_vente = prix_vente;
+        this.no_utilisateur = no_utilisateur;
+        this.no_categorie = no_categorie;
+        this.path_photo = path_photo;
+    }
 	
 	public int getNo_article() {
 		return no_article;
@@ -66,6 +83,14 @@ public class Article implements Serializable{
 	}
 	public void setNo_categorie(int no_categorie) {
 		this.no_categorie = no_categorie;
+	}
+
+	public String getPath_photo() {
+		return path_photo;
+	}
+
+	public void setPath_photo(String path_photo) {
+		this.path_photo = path_photo;
 	}
 
 }
