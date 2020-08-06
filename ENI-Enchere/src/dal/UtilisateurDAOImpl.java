@@ -3,9 +3,12 @@ package dal;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.sun.org.apache.xpath.internal.operations.Mod;
 
+import bo.Enchere;
 import bo.Utilisateur;
 
 public class UtilisateurDAOImpl implements UtilisateurDAO {
@@ -93,6 +96,41 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 		}
 		
 		return vreturn;
+	}
+	
+	public List<Utilisateur> selectAll(){
+		final String SELECT="SELECT * FROM utilisateurs;";
+		List<Utilisateur> listeUtilisateurs = new ArrayList<Utilisateur>();
+		
+		try(Connection cnx = ConnectionProvider.getConnection())
+		{
+			Statement stmt = cnx.createStatement();
+			ResultSet rs = stmt.executeQuery(SELECT);
+			
+			while(rs.next()) {
+				listeUtilisateurs.add(new Utilisateur(
+						rs.getInt("no_utilisateur"),
+						rs.getString("pseudo"),
+						rs.getString("nom"),
+						rs.getString("prenom"),
+						rs.getString("email"),
+						rs.getString("telephone"),
+						rs.getString("rue"),
+						rs.getString("code_postal"),
+						rs.getString("ville"),
+						rs.getString("mot_de_passe"),
+						rs.getInt("credit"),
+						rs.getBoolean("administrateur"),
+						true
+						));
+			}
+		} catch(Exception e) {
+			System.out.print(e.getMessage());
+		}
+		
+		return listeUtilisateurs;
+		
+		
 	}
 
 	@Override

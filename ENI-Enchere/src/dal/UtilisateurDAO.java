@@ -1,5 +1,7 @@
 package dal;
 
+import java.util.List;
+
 import bo.Utilisateur;
 
 public interface UtilisateurDAO {
@@ -12,4 +14,6 @@ public interface UtilisateurDAO {
 	public boolean emailLibre(String email);
 	
 	public Utilisateur getUtilisateurByIdentifiant(String identifiant);
+
+	public List<Utilisateur> selectAll();
 }

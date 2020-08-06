@@ -89,4 +89,5 @@ public class ArticleDAOImpl implements ArticleDAO {
 		return listeArticles;
 		
 	}
+
 }

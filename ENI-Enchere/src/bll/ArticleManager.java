@@ -28,4 +28,5 @@ public class ArticleManager {
 	public List<Article> selectAll() {
 		return this.articleDAO.selectAll();
 	}
+	
 }
