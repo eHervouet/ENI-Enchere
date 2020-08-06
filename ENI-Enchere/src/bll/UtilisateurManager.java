@@ -12,7 +12,7 @@ public class UtilisateurManager {
 		this.utilisateurDAO = DAOFactory.getUtilisateurDAO();
 	}
 	
-	public boolean nouvelUtilisateur(Utilisateur utilisateur) {
+	public Utilisateur nouvelUtilisateur(Utilisateur utilisateur) {
 		return this.utilisateurDAO.nouvelUtilisateur(utilisateur);
 	}
 	
@@ -26,5 +26,9 @@ public class UtilisateurManager {
 	
 	public boolean emailLibre(String email) {
 		return this.utilisateurDAO.emailLibre(email);
+	}
+	
+	public Utilisateur getUtilisateurByIdentifiant(String identifiant) {
+		return this.utilisateurDAO.getUtilisateurByIdentifiant(identifiant);
 	}
 }

@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Utilisateur implements Serializable {
 	private static final long serialVersionUID = 1L;
+	private int no_utilisateur;
 	private String pseudo;
 	private String nom;
 	private String prenom;
@@ -15,9 +16,28 @@ public class Utilisateur implements Serializable {
 	private String mot_de_passe;
 	private int credit;
 	private boolean administrateur;
+	private boolean isInBase;
 	
+	public Utilisateur(int no_utilisateur, String pseudo, String nom, String prenom, String email, String telephone,
+			String rue, String code_postal, String ville, String mot_de_passe, int credit, boolean administrateur, boolean isInBase) {
+		super();
+		this.no_utilisateur = no_utilisateur;
+		this.pseudo = pseudo;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.telephone = telephone;
+		this.rue = rue;
+		this.code_postal = code_postal;
+		this.ville = ville;
+		this.mot_de_passe = mot_de_passe;
+		this.credit = credit;
+		this.administrateur = administrateur;
+		this.isInBase = isInBase;
+	}
+
 	public Utilisateur(String pseudo, String nom, String prenom, String email, String telephone,
-			String rue, String code_postal, String ville, String mot_de_passe, int credit, boolean administrateur) {
+			String rue, String code_postal, String ville, String mot_de_passe, int credit, boolean administrateur, boolean isInBase) {
 		super();
 		this.pseudo = pseudo;
 		this.nom = nom;
@@ -30,6 +50,15 @@ public class Utilisateur implements Serializable {
 		this.mot_de_passe = mot_de_passe;
 		this.credit = credit;
 		this.administrateur = administrateur;
+		this.isInBase = isInBase;
+	}
+
+	public int getNo_utilisateur() {
+		return no_utilisateur;
+	}
+
+	public void setNo_utilisateur(int no_utilisateur) {
+		this.no_utilisateur = no_utilisateur;
 	}
 
 	public String getPseudo() {
@@ -120,5 +149,11 @@ public class Utilisateur implements Serializable {
 		this.administrateur = administrateur;
 	}
 	
+	public void setIsInBase(boolean bool) {
+		this.isInBase = bool;
+	}
 	
+	public boolean getIsInBase() {
+		return this.isInBase;
+	}
 }
