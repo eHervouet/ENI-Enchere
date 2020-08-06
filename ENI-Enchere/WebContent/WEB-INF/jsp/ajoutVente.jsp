@@ -11,9 +11,24 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="https://use.fontawesome.com/9de3b4962a.js"></script>
 <style>
-	input, label {
+input, label {
     display:block;
 }
+
+legend {
+    width:auto;
+    padding:0 10px; /* To give a bit of padding on the left and right */
+    border-bottom:none;
+}
+
+fieldset {
+    border: 1px groove #ddd !important;
+    padding: 0 1em 1em 1em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+            box-shadow:  0px 0px 0px 0px #000;
+}
+
 </style>
 <title>ENI-Enchere</title>
 </head>
@@ -94,7 +109,7 @@
 	  				<div class="form-group row">
 	    				<label for="prix" class="col-sm-3 col-form-label">Mise à prix :</label>
 	    				<div class="col-sm-2">
-	      					<input style="width:100%;" type="number" id="prix" min="1" value="1">
+	      					<input style="width:100%;" type="number" id="prix" min="0" value="0">
 	    				</div>
 	  				</div>
 	  				
@@ -112,11 +127,37 @@
 	    				</div>
 	  				</div>
 	  				
+	  				<fieldset>
+  						<legend>Retrait</legend>
+  						<div class="form-group row">
+							<label for="rue" class="col-sm-3 col-form-label">Rue :</label>
+	    					<div class="col-sm-5">
+	      						<input style="width:100%;" type="text" id="rue" maxlength="30">
+	    					</div>
+	    				</div>
+	    				<div class="form-group row">
+							<label for="cp" class="col-sm-3 col-form-label">Code postal :</label>
+	    					<div class="col-sm-5">
+	      						<input style="width:100%;" type="text" id="cp" maxlength="15">
+	    					</div>
+	    				</div>
+	    				<div class="form-group row">
+							<label for="ville" class="col-sm-3 col-form-label">Ville :</label>
+	    					<div class="col-sm-5">
+	      						<input style="width:100%;" type="text" id="ville" maxlength="30">
+	    					</div>
+	    				</div>
+ 					</fieldset>
+	  				
 	  				<div class="row">
 						<div class="col-3">
 							<input class="btn btn-success btn-lg" type="submit" value="Enregistrer">
 						</div>
-					</div>
+						<div class="col-3">
+							<input class="btn btn-success btn-lg" type="reset" value="Annuler">
+						</div>
+					</div>	
+					<br><br>
 				</form>
 			</div>
 		</div>
@@ -154,6 +195,5 @@ function readURL(input) {
 		document.getElementsByName("date_fin")[0].setAttribute('min', tomorrow);
 		document.getElementsByName("date_fin")[0].setAttribute('value', tomorrow);
 	});
-	
 </script>
 </html>

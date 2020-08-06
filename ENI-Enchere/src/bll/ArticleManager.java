@@ -1,6 +1,9 @@
 package bll;
 
+import java.util.List;
+
 import bo.Article;
+import bo.Categorie;
 import bo.Utilisateur;
 import dal.DAOFactory;
 import dal.UtilisateurDAO;
@@ -16,5 +19,13 @@ public class ArticleManager {
 	
 	public void nouvelArticle(Article article) {
 		this.articleDAO.nouvelArticle(article);
+	}
+	
+	public Article getArticleById(int no_article) {
+		return this.articleDAO.getArticleById(no_article);
+	}
+	
+	public List<Article> selectAll() {
+		return this.articleDAO.selectAll();
 	}
 }
