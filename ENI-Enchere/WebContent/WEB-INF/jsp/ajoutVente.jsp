@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <script src="https://use.fontawesome.com/9de3b4962a.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -34,33 +34,13 @@ fieldset {
 </head>
 <body>
 <c:choose>
-	<c:when test="${empty sessionScope.identifiant }">
+	<c:when test="${empty sessionScope.utilisateur.pseudo }">
 		<%
-    		response.sendRedirect("ENI-Enchere/");
+    		response.sendRedirect("/ENI-Enchere/accueil");
 		%>
 	</c:when>
 	<c:otherwise>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			  <a class="navbar-brand" href="/ENI-Enchere/">ENI-Encheres</a>
-			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			    <span class="navbar-toggler-icon"></span>
-			  </button>
-			
-				<ul class="navbar-nav mr-auto">
-					<li>
-					  <a class="nav-link" href="">Enchère</a>
-					</li>
-					<li>
-					  <a class="nav-link" href="/ENI-Enchere/ajoutVente">Vendre un article</a>
-					</li>
-					<li>
-					  <a class="nav-link" href="">${sessionScope.identifiant}</a>
-					</li>
-					<li>  
-					  <a class="nav-link" href="/ENI-Enchere/deconnexion">Déconnexion</a>
-				  	</li>
-			 	</ul>
-		</nav>
+		<%@ include file="menu.jsp" %>	
 	</c:otherwise>
 </c:choose>
 	
@@ -89,7 +69,7 @@ fieldset {
 	  				</div>
 	  				
 	  				<div class="form-group row">
-	  					<label for="categorie" class="col-sm-3 col-form-label">Catégorie :</label>
+	  					<label for="categorie" class="col-sm-3 col-form-label">CatÃ©gorie :</label>
 	  					<div class="col-sm-5">
 							<select style="width:100%;" name="categories">
 								<c:forEach var="cat" items="${listeCategories}">	
@@ -107,21 +87,21 @@ fieldset {
 	  				</div>
 	  				
 	  				<div class="form-group row">
-	    				<label for="prix" class="col-sm-3 col-form-label">Mise à prix :</label>
+	    				<label for="prix" class="col-sm-3 col-form-label">Mise Ã  prix :</label>
 	    				<div class="col-sm-2">
 	      					<input style="width:100%;" type="number" id="prix" min="0" value="0">
 	    				</div>
 	  				</div>
 	  				
 	  				<div class="form-group row">
-	    				<label for="date_deb" class="col-sm-3 col-form-label">Début de l'enchère :</label>
+	    				<label for="date_deb" class="col-sm-3 col-form-label">DÃ©but de l'enchÃ¨re :</label>
 	    				<div class="col-sm-5">
 	      					<input style="width:100%;" name="date_deb" type="date">
 	    				</div>
 	  				</div>
 	  				
 	  				<div class="form-group row">
-	    				<label for="date_fin" class="col-sm-3 col-form-label">Fin de l'enchère :</label>
+	    				<label for="date_fin" class="col-sm-3 col-form-label">Fin de l'enchÃ¨re :</label>
 	    				<div class="col-sm-5">
 	      					<input style="width:100%;" name="date_fin" type="date">
 	    				</div>
@@ -183,7 +163,7 @@ function readURL(input) {
 	});
 	
 	$( document ).ready(function() {
-		//set la valeur et le min pour les input de date et début et fin
+		//set la valeur et le min pour les input de date et dÃ©but et fin
 		var today = new Date().toISOString().split('T')[0];
 		var temp = new Date();
 		temp.setDate(temp.getDate() + 1);

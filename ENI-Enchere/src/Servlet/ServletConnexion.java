@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bll.UtilisateurManager;
+import bo.Utilisateur;
 
 /**
  * Servlet implementation class ServletConnexion
@@ -42,8 +43,9 @@ public class ServletConnexion extends HttpServlet {
 			rd.forward(request, response);
 		} else {
 			HttpSession session = request.getSession();
-			session.setAttribute("identifiant", identifiant);
-			RequestDispatcher rd = request.getRequestDispatcher("/");
+			Utilisateur utilisateur = um.getUtilisateurByIdentifiant(identifiant);
+			session.setAttribute("utilisateur", utilisateur);
+			RequestDispatcher rd = request.getRequestDispatcher("/accueil");
 			rd.forward(request, response);
 		}
 				

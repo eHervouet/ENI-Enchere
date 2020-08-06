@@ -42,7 +42,7 @@ public class ServletCreationCompte extends HttpServlet {
 		String rue = (String) request.getParameter("rue");
 		
 		UtilisateurManager um = new UtilisateurManager();
-		Utilisateur utilisateur = new Utilisateur(pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, 0, false);
+		Utilisateur utilisateur = new Utilisateur(pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, 0, false, false);
 
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/creationCompte.jsp");
 				
@@ -50,7 +50,7 @@ public class ServletCreationCompte extends HttpServlet {
 			request.setAttribute("error", "L'identifiant n'est pas disponible.");
 		} else if (!um.emailLibre(email)) {
 			request.setAttribute("error", "L'adresse mail indiquée est déjà attribuer à un compte.");
-		} else if (!um.nouvelUtilisateur(utilisateur)) {
+		} else if (!um.nouvelUtilisateur(utilisateur).getIsInBase()) {
 			request.setAttribute("error", "Une erreur interne est survenue");
 		} else {
 			rd = request.getRequestDispatcher("/connexion");

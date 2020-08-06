@@ -1,35 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <script src="https://use.fontawesome.com/9de3b4962a.js"></script>
 <title>Creation de compte</title>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	  <a class="navbar-brand" href="/ENI-Enchere/">ENI-Encheres</a>
-	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon"></span>
-	  </button>
-	
-		<ul class="navbar-nav mr-auto">
-			<li>
-			  <a class="nav-link" href="/ENI-Enchere/connexion">Se connecter</a>
-			</li>
-			<li>  
-			  <a class="nav-link" href="/ENI-Enchere/creationCompte">Créer un compte</a>
-		  	</li>
-	 	</ul>
- 	</nav>
+	<%@ include file="menu.jsp" %>	
  	
 	<div class="container">
 		<div class="row">
 			<div class="col-12 text-center">
-				<h2 style="text-decoration : underline;">Création de compte</h2>
+				<h2 style="text-decoration : underline;">CrÃ©ation de compte</h2>
 			</div>
 		</div>
 		<form method="POST" action="/ENI-Enchere/creationCompte" class='form-horizontal'>
@@ -50,7 +36,7 @@
 					<input type="text" name="nom" maxlength="30" required />
 				</div>
 				<div class="col-6">
-					<label for="telephone">Téléphone : </label><br/>
+					<label for="telephone">TÃ©lÃ©phone : </label><br/>
 					<input type="text" name="telephone" maxlength="15" required />
 				</div>
 			</div>
@@ -95,10 +81,10 @@
 		  	</div>
 			<div class="row">
 				<div class="col-6">
-					<input class="btn btn-success btn-lg" type="submit" value="Créer mon compte">
+					<input class="btn btn-success btn-lg" type="submit" value="CrÃ©er mon compte">
 				</div>
 				<div class="col-6">
-					<button class="btn btn-danger btn-lg" type="button" onclick="location.href='/ENI-Enchere/';" formnovalidate>Annuler</button>
+					<button class="btn btn-danger btn-lg" type="button" onclick="location.href='/ENI-Enchere/accueil';" formnovalidate>Annuler</button>
 				</div>
 			</div>				
 		</form>
