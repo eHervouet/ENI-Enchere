@@ -17,8 +17,9 @@ public class ArticleManager {
 		this.articleDAO = DAOFactory.getArticleDAO();
 	}
 	
-	public void nouvelArticle(Article article) {
-		this.articleDAO.nouvelArticle(article);
+	//retourne l'id de l'article crée
+	public boolean nouvelArticle(Article article) {
+		return this.articleDAO.nouvelArticle(article);
 	}
 	
 	public Article getArticleById(int no_article) {

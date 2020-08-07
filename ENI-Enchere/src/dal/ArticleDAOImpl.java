@@ -16,19 +16,39 @@ public class ArticleDAOImpl implements ArticleDAO {
 	private static final String SELECT_ARTICLE="SELECT * FROM ARTICLES WHERE no_article = ?;";
 			
 	@Override
-	public void nouvelArticle(Article article)
+	public boolean nouvelArticle(Article article)
 	{
-		final String INSERT_ARTICLE="";
+		final String INSERT_ARTICLE="INSERT INTO ARTICLES(nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial,"
+				+ " prix_vente, path_photo, no_categorie, no_utilisateur) "
+			+ "VALUES ('"+article.getNom_article()+"', '"+ article.getDescription()+"', '"+article.getDate_debut_encheres()+"',"
+				+ "'"+article.getDate_fin_encheres()+"', "+article.getPrix_initial()+", "+article.getPrix_vente()+", "
+				+ "'"+article.getPath_photo()+"', "+article.getNo_categorie()+", "+article.getNo_utilisateur()+");";
+
+		boolean vreturn = false;
 		
-		System.out.print(INSERT_ARTICLE);
 		try(Connection cnx = ConnectionProvider.getConnection())
 		{
 			Statement stmt = cnx.createStatement();
-			ResultSet rs = stmt.executeQuery(INSERT_ARTICLE);
+			PreparedStatement pstmt = cnx.prepareStatement(INSERT_ARTICLE, Statement.RETURN_GENERATED_KEYS);
+			//int i = stmt.executeUpdate(INSERT_ARTICLE);
+			int i = pstmt.executeUpdate();
+			if (i > 0) {
+				ResultSet rs = pstmt.getGeneratedKeys();
+				if(rs.next())
+				{
+					article.setNo_article(rs.getInt(1));
+				}
+			    final String INSERT_ENCHERES="INSERT INTO ENCHERES(no_utilisateur, no_article, date_enchere, montant_enchere) "
+			    	+ "VALUES ("+article.getNo_utilisateur()+", "+article.getNo_article()+", '"+article.getDate_debut_encheres()+"', "+article.getPrix_vente()+");";
+			    
+			    int j = stmt.executeUpdate(INSERT_ENCHERES);
+			    if(j > 0) { vreturn = true; }
+			}
 			
 		} catch(Exception e) {
 			System.out.print(e.getMessage());
 		}
+		return vreturn;
 	}
 
 	@Override
