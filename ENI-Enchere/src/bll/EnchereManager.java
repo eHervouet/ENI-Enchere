@@ -16,4 +16,5 @@ public class EnchereManager {
 	public List<Enchere> selectAll() {
 		return this.enchereDAO.selectAll();
 	}
+	
 }

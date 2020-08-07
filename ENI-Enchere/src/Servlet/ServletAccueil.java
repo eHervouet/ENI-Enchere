@@ -1,7 +1,6 @@
 package Servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -11,12 +10,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bll.ArticleEnchereManager;
 import bll.ArticleManager;
 import bll.CategorieManager;
-import bll.EnchereManager;
+import bll.UtilisateurManager;
 import bo.Article;
+import bo.ArticleEnchere;
 import bo.Categorie;
-import bo.Enchere;
+import bo.Utilisateur;
 
 /**
  * Servlet implementation class AccueilServlet
@@ -32,11 +33,11 @@ public class ServletAccueil extends HttpServlet {
 		CategorieManager cm = new CategorieManager();
 		List<Categorie> lc = cm.selectAll();
 		
-		ArticleManager am = new ArticleManager();
-		List<Article> la = am.selectAll();
-		
+		ArticleEnchereManager aem = new ArticleEnchereManager();
+		List<ArticleEnchere> lae = aem.selectAll();
+
 		request.setAttribute("listeCategories", lc);
-		request.setAttribute("listeArticles", la);
+		request.setAttribute("listeArticleEncheres", lae);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
 		rd.forward(request, response);

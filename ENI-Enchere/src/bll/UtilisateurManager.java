@@ -1,5 +1,8 @@
 package bll;
 
+import java.util.List;
+
+import bo.Enchere;
 import bo.Utilisateur;
 import dal.DAOFactory;
 import dal.UtilisateurDAO;
@@ -28,7 +31,13 @@ public class UtilisateurManager {
 		return this.utilisateurDAO.emailLibre(email);
 	}
 	
+
 	public Utilisateur getUtilisateurByIdentifiant(String identifiant) {
 		return this.utilisateurDAO.getUtilisateurByIdentifiant(identifiant);
+	}
+
+	
+	public List<Utilisateur> selectAll() {
+		return this.utilisateurDAO.selectAll();
 	}
 }

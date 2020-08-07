@@ -18,4 +18,9 @@ public abstract class DAOFactory {
 	{
 		return new ArticleDAOImpl();
 	}
+	
+	public static ArticleEnchereDAO getArticleEnchereDAO()
+	{
+		return new ArticleEnchereDAOImpl();
+	}
 }
