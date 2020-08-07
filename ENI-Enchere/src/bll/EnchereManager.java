@@ -17,4 +17,8 @@ public class EnchereManager {
 		return this.enchereDAO.selectAll();
 	}
 	
+	public boolean ajouterEnchere(Enchere ench) {
+		return this.enchereDAO.ajouterEnchere(ench);
+	}
+	
 }
