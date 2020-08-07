@@ -6,30 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/ajoutVente.css" />
 <script src="https://use.fontawesome.com/9de3b4962a.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="https://use.fontawesome.com/9de3b4962a.js"></script>
-<style>
-input, label {
-    display:block;
-}
-
-legend {
-    width:auto;
-    padding:0 10px; /* To give a bit of padding on the left and right */
-    border-bottom:none;
-}
-
-fieldset {
-    border: 1px groove #ddd !important;
-    padding: 0 1em 1em 1em !important;
-    margin: 0 0 1.5em 0 !important;
-    -webkit-box-shadow:  0px 0px 0px 0px #000;
-            box-shadow:  0px 0px 0px 0px #000;
-}
-
-</style>
 <title>ENI-Enchere</title>
 </head>
 <body>
