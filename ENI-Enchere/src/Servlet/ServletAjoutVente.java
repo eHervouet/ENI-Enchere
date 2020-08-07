@@ -1,6 +1,5 @@
 package Servlet;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -21,16 +20,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
-
-import bll.ArticleEnchereManager;
 import bll.ArticleManager;
 import bll.CategorieManager;
-import bll.EnchereManager;
-import bll.UtilisateurManager;
 import bo.Article;
 import bo.Categorie;
-import bo.Enchere;
 import bo.Utilisateur;
 
 

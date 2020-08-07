@@ -47,7 +47,7 @@
 			 <div class="col-lg-5" style="background-color : blue; color: white; margin: 15px; align: center;">
 			 	<div class="row justify-content-center" style="">
 			 		<div class="col-lg-3" style="background-color : red; color: white; margin: 15px; align: center;">
-			 			<img class="fit-picture" src="${articleEnchere.getPath_photo()}" alt="image article">
+			 			<img class="fit-picture" src="<%=getServletContext().getRealPath("/")%>${articleEnchere.getPath_photo()}" alt="image article">
 			 		</div>
 			 		<div class="col-lg-7" style="background-color : green; color: white; margin: 15px; align: center;">
 			 			<p style="text-decoration: underline;">${articleEnchere.getNom_article()}</p>
