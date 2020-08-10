@@ -16,4 +16,8 @@ public interface UtilisateurDAO {
 	public Utilisateur getUtilisateurByIdentifiant(String identifiant);
 
 	public List<Utilisateur> selectAll();
+
+	public Utilisateur modifierUtilisateur(Utilisateur utilisateur);
+
+	public void supprimerUtilisateur(int no_utilisateur);
 }
