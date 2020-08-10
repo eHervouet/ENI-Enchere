@@ -3,6 +3,7 @@ input, label
 display:block;
 }
 
+
 div.fill {
     position:relative;
     display:flex;
@@ -22,4 +23,9 @@ ul {
 	margin: 0; 
 	padding: 0;
 	margin-left: 10px;
+	list-style-type: none;
+}
+
+#num_cat{
+	visibility: hidden;
 }
