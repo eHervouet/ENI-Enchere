@@ -1,0 +1,5 @@
+##Dossier serveur contenant les images des articles ajoutés
+# Ignore everything in this directory
+*
+# Except this file
+!.gitignore
