@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/index.css" />
 <script src="https://use.fontawesome.com/9de3b4962a.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <style>
 	input, label {
     display:block;
@@ -29,12 +30,12 @@
 		<div class="row">
 			<div class="col">
 				<label for="search">Filtres :</label>
-				<input type="search" name="search" placeholder="Rechercher ..."><br/>
-				<label for="categorie">Catégorie :</label>
-				<select name="categories">
+				<input id ="search" type="search" name="search" placeholder="Rechercher ..."><br/>
+				<label for="categories">Catégorie :</label>
+				<select id="selectCat"  name="categories">
 					<option value="all">Toutes</option>
 					<c:forEach var="cat" items="${listeCategories}">		
-						<option value="${cat.no_categorie}">${cat.libelle}</option>	
+						<option  value="${cat.no_categorie}">${cat.libelle}</option>	
 					</c:forEach>
 				</select>
 			</div>
@@ -42,18 +43,21 @@
 				<button class="btn btn-success btn-lg" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button><br/>
 			</div>
 		</div><br />
-		<div class="row justify-content-center" style="">
+		<div class="row justify-content-center" id="contenant">
 			<c:forEach var="articleEnchere" items="${listeArticleEncheres}">
-			 <div class="col-lg-5" style="background-color : blue; color: white; margin: 15px; align: center;">
+			 <div id="myDIV" class="col-lg-5" style="background-color : blue; color: white; margin: 15px; align: center;">
 			 	<div class="row justify-content-center" style="">
 			 		<div class="col-lg-3" style="background-color : red; color: white; margin: 15px; align: center;">
 			 			<img class="fit-picture" src="<%=getServletContext().getRealPath("/")%>${articleEnchere.getPath_photo()}" alt="image article">
 			 		</div>
 			 		<div class="col-lg-7" style="background-color : green; color: white; margin: 15px; align: center;">
-			 			<p style="text-decoration: underline;">${articleEnchere.getNom_article()}</p>
-			 			<p>Prix : ${articleEnchere.getMontant_enchere()}</p>
-			 			<p>Fin de l'enchère :  ${articleEnchere.getDate_fin_encheres()}</p>
-			 			<p>Vendeur :  ${articleEnchere.getPseudo()}</p>
+			 			<ul id="filter">
+			 				<li style="text-decoration: underline;"><span id="research">${articleEnchere.getNom_article()}</span></li>
+			 				<li>Prix : ${articleEnchere.getMontant_enchere()}</li>
+			 				<li>Fin de l'enchère :  ${articleEnchere.getDate_fin_encheres()}</li>
+			 				<li>Vendeur :  ${articleEnchere.getPseudo()}</li>
+			 				<li id="num_cat" >${articleEnchere.getNo_categorie()}</li>
+			 			</ul>
 			 		</div>
 			 	</div>
 			</div>
@@ -63,4 +67,24 @@
 	</div>
 	
 </body>
+<script>
+$(document).ready(function(){
+	$("#search").on("keyup", function() {
+		var value = $(this).val().toLowerCase();
+		 $("#myDIV #research").filter(function() {		 
+		      $(this).closest("#myDIV").toggle($(this).text().toLowerCase().indexOf(value) > -1);
+		 });
+	});
+	
+    $("#selectCat").change(function(){
+        var categorie = $(this).children("option:selected").val();
+        console.log(categorie);
+        $("#myDIV #num_cat").filter(function() {	
+        	console.log($(this).text());
+		      $(this).closest("#myDIV").toggle($(this).text() != categorie);
+		 });
+      });
+	
+});
+</script>
 </html>
