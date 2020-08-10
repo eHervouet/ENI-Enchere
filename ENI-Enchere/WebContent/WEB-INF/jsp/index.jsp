@@ -10,11 +10,6 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/index.css" />
 <script src="https://use.fontawesome.com/9de3b4962a.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<style>
-	input, label {
-    display:block;
-}
-</style>
 <title>ENI-Enchere</title>
 </head>
 <body>
@@ -45,14 +40,14 @@
 		</div><br />
 		<div class="row justify-content-center" id="contenant">
 			<c:forEach var="articleEnchere" items="${listeArticleEncheres}">
-			 <div id="myDIV" class="col-lg-5" style="background-color : blue; color: white; margin: 15px; align: center;">
-			 	<div class="row justify-content-center" style="">
-			 		<div class="col-lg-3" style="background-color : red; color: white; margin: 15px; align: center;">
-			 			<img class="fit-picture" src="<%=getServletContext().getRealPath("/")%>${articleEnchere.getPath_photo()}" alt="image article">
+			 <div id="myDIV" class="col-lg-5" style="background-color : green; color: white; margin:10px 15px 10px 15px; border:solid grey;">
+			 	<div class="row">
+			 		<div class="col pl-0 pr-0 fill" style="width:200px; height:200px">
+			 			<img src="${pageContext.request.contextPath}/photos_articles/${articleEnchere.getPath_photo()}" alt="image article">
 			 		</div>
-			 		<div class="col-lg-7" style="background-color : green; color: white; margin: 15px; align: center;">
+			 		<div class="col" style="color: white;">
 			 			<ul id="filter">
-			 				<li style="text-decoration: underline;"><span id="research">${articleEnchere.getNom_article()}</span></li>
+			 				<li style="text-decoration: underline; list-style-type: none;"><span id="research">${articleEnchere.getNom_article()}</span></li>
 			 				<li>Prix : ${articleEnchere.getMontant_enchere()}</li>
 			 				<li>Fin de l'enchère :  ${articleEnchere.getDate_fin_encheres()}</li>
 			 				<li>Vendeur :  ${articleEnchere.getPseudo()}</li>
