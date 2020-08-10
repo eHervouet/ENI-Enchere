@@ -40,4 +40,12 @@ public class UtilisateurManager {
 	public List<Utilisateur> selectAll() {
 		return this.utilisateurDAO.selectAll();
 	}
+	
+	public Utilisateur modifierUtilisateur(Utilisateur utilisateur) {
+		return this.utilisateurDAO.modifierUtilisateur(utilisateur);
+	}
+	
+	public void supprimerUtilisateur(int no_utilisateur) {
+		this.utilisateurDAO.supprimerUtilisateur(no_utilisateur);
+	}
 }

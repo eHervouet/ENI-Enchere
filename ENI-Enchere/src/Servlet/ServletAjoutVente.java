@@ -64,7 +64,7 @@ public class ServletAjoutVente extends HttpServlet {
 		String ville = (String) request.getParameter("ville");
 		String cp = (String) request.getParameter("cp");
 		
-		//r�cup�ration de l'id client en cours
+		//récupération de l'id client en cours
 		HttpSession session = request.getSession();
 		Utilisateur user = (Utilisateur)session.getAttribute("utilisateur");
 		int no_utilisateur = user.getNo_utilisateur();
