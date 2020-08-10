@@ -4,20 +4,42 @@ import java.io.Serializable;
 import java.sql.Date;
 
 public class ArticleEnchere implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	private int no_article;
+	private int no_categorie;
 	private String nom_article;
 	private float montant_enchere;
 	private Date date_fin_encheres;
 	private String pseudo;
 	private String path_photo;
 	
-	public ArticleEnchere(String nom_article, float montant_enchere, Date date_fin_encheres, String pseudo,
-			String path_photo) {
+	public ArticleEnchere(int no_article, int no_categorie, String nom_article, float montant_enchere,
+			Date date_fin_encheres, String pseudo, String path_photo) {
 		super();
+		this.no_article = no_article;
+		this.no_categorie = no_categorie;
 		this.nom_article = nom_article;
 		this.montant_enchere = montant_enchere;
 		this.date_fin_encheres = date_fin_encheres;
 		this.pseudo = pseudo;
 		this.path_photo = path_photo;
+	}
+
+	public int getNo_article() {
+		return no_article;
+	}
+
+	public void setNo_article(int no_article) {
+		this.no_article = no_article;
+	}
+
+	public int getNo_categorie() {
+		return no_categorie;
+	}
+
+	public void setNo_categorie(int no_categorie) {
+		this.no_categorie = no_categorie;
 	}
 
 	public String getNom_article() {
@@ -59,6 +81,9 @@ public class ArticleEnchere implements Serializable {
 	public void setPath_photo(String path_photo) {
 		this.path_photo = path_photo;
 	}
+
+	
+
 	
 	
 	

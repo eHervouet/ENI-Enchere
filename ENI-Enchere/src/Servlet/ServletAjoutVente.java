@@ -21,16 +21,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
-
-import bll.ArticleEnchereManager;
 import bll.ArticleManager;
 import bll.CategorieManager;
-import bll.EnchereManager;
-import bll.UtilisateurManager;
 import bo.Article;
 import bo.Categorie;
-import bo.Enchere;
 import bo.Utilisateur;
 
 
@@ -70,7 +64,7 @@ public class ServletAjoutVente extends HttpServlet {
 		String ville = (String) request.getParameter("ville");
 		String cp = (String) request.getParameter("cp");
 		
-		//récupération de l'id client en cours
+		//rï¿½cupï¿½ration de l'id client en cours
 		HttpSession session = request.getSession();
 		Utilisateur user = (Utilisateur)session.getAttribute("utilisateur");
 		int no_utilisateur = user.getNo_utilisateur();
@@ -97,7 +91,7 @@ public class ServletAjoutVente extends HttpServlet {
 			
 		}catch(Exception e)
 		{
-			System.out.println("Un problème est survenu lors de la création de l'article " + e);
+			System.out.println("Un problï¿½me est survenu lors de la crï¿½ation de l'article " + e);
 		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/accueil");
