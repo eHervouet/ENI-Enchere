@@ -110,4 +110,34 @@ public class ArticleDAOImpl implements ArticleDAO {
 		
 	}
 
+	@Override
+	public List<Article> selectArticleByUtilisateur(int no_utilisateur) {
+		final String SELECT="SELECT * FROM articles WHERE no_utilisateur = "+no_utilisateur+";";
+		List<Article> listeArticles = new ArrayList<Article>();
+		
+		try(Connection cnx = ConnectionProvider.getConnection())
+		{
+			Statement stmt = cnx.createStatement();
+			ResultSet rs = stmt.executeQuery(SELECT);
+			
+			while(rs.next()) {
+				listeArticles.add(new Article(
+						rs.getInt("no_article"),
+						rs.getString("nom_article"),
+						rs.getString("description"),
+						rs.getDate("date_debut_encheres"),
+						rs.getDate("date_fin_encheres"),
+						rs.getInt("prix_initial"),
+						rs.getInt("prix_vente"),
+						rs.getInt("no_utilisateur"),
+						rs.getInt("no_categorie"),
+						rs.getString("path_photo")));					
+			}
+		} catch(Exception e) {
+			System.out.print(e.getMessage());
+		}
+		
+		return listeArticles;
+	}
+
 }

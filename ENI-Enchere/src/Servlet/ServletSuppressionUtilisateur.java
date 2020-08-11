@@ -37,7 +37,7 @@ public class ServletSuppressionUtilisateur extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.removeAttribute("utilisateur");
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/accueil");
 		rd.forward(request, response);
 	}
 

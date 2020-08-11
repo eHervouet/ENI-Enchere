@@ -34,9 +34,6 @@
 					</c:forEach>
 				</select>
 			</div>
-			<div class="col">
-				<button class="btn btn-success btn-lg" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button><br/>
-			</div>
 		</div><br />
 		<div class="row justify-content-center" id="contenant">
 			<c:forEach var="articleEnchere" items="${listeArticleEncheres}">
@@ -50,9 +47,11 @@
 			 				<li style="text-decoration: underline; list-style-type: none;"><span id="research">${articleEnchere.getNom_article()}</span></li>
 			 				<li>Prix : ${articleEnchere.getMontant_enchere()}</li>
 			 				<li>Fin de l'enchère :  ${articleEnchere.getDate_fin_encheres()}</li>
-			 				<li>Vendeur :  ${articleEnchere.getPseudo()}</li>
+							<li>Vendeur :  ${articleEnchere.getPseudo()}</li>
+			 				<li id="num_cat" value="${articleEnchere.getNo_categorie()}"></li>
+			 				<li>Vendeur :  <a href="/ENI-Enchere/voirVendeur?pseudo=${articleEnchere.getPseudo()}">${articleEnchere.getPseudo()}</a></li>
 			 				<li id="num_cat" >${articleEnchere.getNo_categorie()}</li>
-			 			</ul>
+						</ul>
 			 		</div>
 			 	</div>
 			</div>
@@ -68,18 +67,17 @@ $(document).ready(function(){
 		var value = $(this).val().toLowerCase();
 		 $("#myDIV #research").filter(function() {		 
 		      $(this).closest("#myDIV").toggle($(this).text().toLowerCase().indexOf(value) > -1);
+		     // $(this).closest("#myDIV").hide($(this).text().toLowerCase().indexOf(value) > -1);
 		 });
 	});
 	
     $("#selectCat").change(function(){
-        var categorie = $(this).children("option:selected").val();
-        console.log(categorie);
+        var num_categorie = $(this).children("option:selected").val();
         $("#myDIV #num_cat").filter(function() {	
-        	console.log($(this).text());
-		      $(this).closest("#myDIV").toggle($(this).text() != categorie);
-		 });
-      });
-	
+        	$(this).closest("#myDIV").toggle($(this).val() == num_categorie || num_categorie == "all");
+        	//$(this).closest("#myDIV").hide($(this).val() == num_categorie || num_categorie == "all");
+    	});
+    });
 });
 </script>
 </html>

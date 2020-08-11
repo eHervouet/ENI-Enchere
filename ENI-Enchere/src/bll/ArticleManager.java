@@ -17,7 +17,7 @@ public class ArticleManager {
 		this.articleDAO = DAOFactory.getArticleDAO();
 	}
 	
-	//retourne l'id de l'article crée
+	//retourne l'id de l'article crï¿½e
 	public boolean nouvelArticle(Article article) {
 		return this.articleDAO.nouvelArticle(article);
 	}
@@ -30,4 +30,7 @@ public class ArticleManager {
 		return this.articleDAO.selectAll();
 	}
 	
+	public List<Article> selectArticleByUtilisateur(int no_utilisateur) {
+		return this.articleDAO.selectArticleByUtilisateur(no_utilisateur);
+	}
 }
