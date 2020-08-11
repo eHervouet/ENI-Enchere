@@ -4,11 +4,9 @@
 <c:choose>
 	<c:when test="${empty sessionScope.utilisateur.pseudo }">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			  <a class="navbar-brand" href="/ENI-Enchere/accueil">ENI-Encheres</a>
-			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			    <span class="navbar-toggler-icon"></span>
-			  </button>
-			
+			  <a class="navbar-brand" href="/ENI-Enchere/accueil">
+			  	<img src="images/logo.ico" alt="logo eni-encheres" width="30" height="30" class="d-inline-block align-top"/>ENI-Encheres
+			  </a>			
 				<ul class="navbar-nav mr-auto">
 					<li>
 					  <a class="nav-link" href="/ENI-Enchere/connexion">Se connecter</a>
@@ -21,10 +19,9 @@
 	</c:when>
 	<c:otherwise>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			  <a class="navbar-brand" href="/ENI-Enchere/accueil">ENI-Encheres</a>
-			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			    <span class="navbar-toggler-icon"></span>
-			  </button>
+			  <a class="navbar-brand" href="/ENI-Enchere/accueil">
+			  	<img src="images/logo.ico" alt="logo eni-encheres" width="30" height="30" class="d-inline-block align-top"/>ENI-Encheres
+			  </a>
 			
 				<ul class="navbar-nav mr-auto">
 					<li>

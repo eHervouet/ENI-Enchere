@@ -47,7 +47,7 @@
 				<h1 style="text-decoration : underline;">Mes ventes</h1>
 				<ul>
 					<c:forEach var="article" items="${la}">
-				 		<li>${article.date_debut_encheres} : ${article.nom_article}</li>
+				 		<li><a href="/ENI-Enchere/detailVente?no_article=${article.getNo_article()}">${article.date_debut_encheres} : ${article.nom_article}</a></li>
 					</c:forEach>
 				</ul>
 				
