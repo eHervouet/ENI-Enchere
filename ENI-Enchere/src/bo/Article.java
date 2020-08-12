@@ -6,6 +6,7 @@ import java.sql.Date;
 public class Article implements Serializable{
 
 	private static final long serialVersionUID = 1L;
+	
 	private int no_article;
 	private String nom_article;
 	private String description;
