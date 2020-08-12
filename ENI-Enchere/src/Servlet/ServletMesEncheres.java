@@ -9,34 +9,31 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import bll.ArticleManager;
-import bll.UtilisateurManager;
-import bo.Article;
+import bll.ArticleEnchereManager;
+import bo.ArticleEnchere;
 import bo.Utilisateur;
 
 /**
- * Servlet implementation class ServletVisualisationVendeur
+ * Servlet implementation class ServletMesEncheres
  */
-@WebServlet("/voirVendeur")
-public class ServletVisualisationVendeur extends HttpServlet {
+@WebServlet("/MesEncheres")
+public class ServletMesEncheres extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String pseudo = request.getParameter("pseudo");
-		UtilisateurManager um = new UtilisateurManager();
-		ArticleManager am = new ArticleManager();
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/mesEncheres.jsp");
 		
-		Utilisateur utilisateur = um.getUtilisateurByIdentifiant(pseudo);
-		request.setAttribute("utilisateur", utilisateur);
+		ArticleEnchereManager aem = new ArticleEnchereManager();
+		HttpSession session = request.getSession();
+		Utilisateur utilisateur = (Utilisateur) session.getAttribute("utilisateur");
+		List<ArticleEnchere> lae = aem.getMesEncheres(utilisateur.getNo_utilisateur());
+		request.setAttribute("lae", lae);
 		
-		List<Article> la = am.selectArticleByUtilisateur(utilisateur.getNo_utilisateur());
-		request.setAttribute("la", la);
-
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/voirVendeur.jsp");
 		rd.forward(request, response);
 	}
 

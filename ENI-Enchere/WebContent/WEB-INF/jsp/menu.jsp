@@ -25,7 +25,7 @@
 			
 				<ul class="navbar-nav mr-auto">
 					<li>
-					  <a class="nav-link" href="">Enchère</a>
+					  <a class="nav-link" href="/ENI-Enchere/MesEncheres">Enchère</a>
 					</li>
 					<li>
 					  <a class="nav-link" href="/ENI-Enchere/ajoutVente">Vendre un article</a>

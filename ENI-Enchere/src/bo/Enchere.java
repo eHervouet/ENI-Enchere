@@ -6,6 +6,7 @@ import java.sql.Date;
 public class Enchere implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
+	
 	private int no_utilisateur;
 	private int no_article;
 	private Date date_enchere;

@@ -29,6 +29,15 @@ ul {
 #num_cat{
 	visibility: hidden;
 }
+
 #myDIV {
   box-shadow: 8px 8px 12px #aaa;
+}
+
+a {
+	color : black;
+}
+
+a:hover {
+	color : black;
 }
