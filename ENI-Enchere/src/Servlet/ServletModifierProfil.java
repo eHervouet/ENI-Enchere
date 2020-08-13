@@ -41,20 +41,22 @@ public class ServletModifierProfil extends HttpServlet {
 		String telephone = (String) request.getParameter("telephone");
 		String rue = (String) request.getParameter("rue");
 		
+		HttpSession session = request.getSession();
+		Utilisateur u = (Utilisateur) session.getAttribute("utilisateur");
+		
 		UtilisateurManager um = new UtilisateurManager();
 		Utilisateur utilisateur = new Utilisateur(Integer.valueOf(no_utilisateur), pseudo, nom, prenom, email, telephone, rue, code_postal, ville, null, 0, false, false);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/profil.jsp");
 		
-		if(!um.identifiantLibre(pseudo)) {
+		if(!um.identifiantLibre(pseudo) && !pseudo.equals(u.getPseudo())) {
 			request.setAttribute("error", "L'identifiant n'est pas disponible.");
-		} else if (!um.emailLibre(email)) {
+		} else if (!um.emailLibre(email) && !email.contentEquals(u.getEmail())) {
 			request.setAttribute("error", "L'adresse mail indiquée est déjà attribuer à un compte.");
 		} else if (!um.modifierUtilisateur(utilisateur).getIsInBase()) {
 			request.setAttribute("error", "Une erreur interne est survenue");
 		}
 		
-		HttpSession session = request.getSession();
 		session.removeAttribute("utilisateur");
 		Utilisateur utilisateurSess = um.getUtilisateurByIdentifiant(pseudo);
 		session.setAttribute("utilisateur", utilisateurSess);

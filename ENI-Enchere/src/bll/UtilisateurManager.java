@@ -36,6 +36,9 @@ public class UtilisateurManager {
 		return this.utilisateurDAO.getUtilisateurByIdentifiant(identifiant);
 	}
 
+	public Utilisateur getUtilisateurByNum(int no_utilisateur) {
+		return this.utilisateurDAO.getUtilisateurByNum(no_utilisateur);
+	}
 	
 	public List<Utilisateur> selectAll() {
 		return this.utilisateurDAO.selectAll();

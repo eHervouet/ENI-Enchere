@@ -106,8 +106,41 @@ public class ArticleEnchereDAOImpl implements ArticleEnchereDAO {
 	}
 
 	@Override
+	public List<ArticleEnchere> getMesVentes(int no_utilisateur) {
+		final String SELECT = "select articles.no_article, articles.nom_article, articles.description, articles.date_debut_encheres, articles.date_fin_encheres, articles.prix_initial, articles.prix_vente, articles.no_utilisateur, articles.no_categorie, articles.path_photo, encheres.date_enchere, encheres.montant_enchere, utilisateurs.pseudo from articles, encheres, utilisateurs where articles.no_article = encheres.no_article and encheres.no_utilisateur = utilisateurs.no_utilisateur and articles.no_utilisateur = "+no_utilisateur+";";
+		List<ArticleEnchere> laev = new ArrayList<ArticleEnchere>();
+		
+		try(Connection cnx = ConnectionProvider.getConnection())
+		{
+			PreparedStatement pstmt = cnx.prepareStatement(SELECT);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				laev.add(new ArticleEnchere(
+						rs.getInt("no_article"),
+						rs.getString("nom_article"),
+						rs.getString("description"),
+						rs.getDate("date_debut_encheres"),
+						rs.getDate("date_fin_encheres"),
+						rs.getInt("prix_initial"),
+						rs.getInt("prix_vente"),
+						rs.getInt("no_utilisateur"),
+						rs.getInt("no_categorie"),
+						rs.getString("path_photo"),
+						rs.getDate("date_enchere"),
+						rs.getFloat("montant_enchere"),
+						rs.getString("pseudo")
+						));
+			}
+		} catch (Exception e) {
+			System.out.print(e.getMessage());
+		}
+		
+		return laev;
+	}
+
+	
 	public List<ArticleEnchere> getMesEncheres(int no_utilisateur) {
-		final String SELECT = "select articles.no_article, articles.nom_article, articles.description, articles.date_debut_encheres, articles.date_fin_encheres, articles.prix_initial, articles.prix_vente, articles.no_utilisateur, articles.no_categorie, articles.path_photo, encheres.date_enchere, encheres.montant_enchere, utilisateurs.pseudo from articles, encheres, utilisateurs where articles.no_article = encheres.no_article and encheres.no_utilisateur = utilisateurs.no_utilisateur and encheres.no_utilisateur = "+no_utilisateur+";";
+		final String SELECT = "select articles.no_article, articles.nom_article, articles.description, articles.date_debut_encheres, articles.date_fin_encheres, articles.prix_initial, articles.prix_vente, articles.no_utilisateur, articles.no_categorie, articles.path_photo, encheres.date_enchere, encheres.montant_enchere, utilisateurs.pseudo from articles, encheres, utilisateurs where articles.no_article = encheres.no_article and encheres.no_utilisateur = UTILISATEURS.no_utilisateur and encheres.no_utilisateur = "+no_utilisateur+";";
 		List<ArticleEnchere> lae = new ArrayList<ArticleEnchere>();
 		
 		try(Connection cnx = ConnectionProvider.getConnection())
@@ -137,5 +170,4 @@ public class ArticleEnchereDAOImpl implements ArticleEnchereDAO {
 		
 		return lae;
 	}
-
 }

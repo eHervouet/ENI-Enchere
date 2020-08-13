@@ -12,5 +12,7 @@ public interface ArticleEnchereDAO {
 	
 	public ArticleEnchere getArticleEnchereById(int no_article);
 	
+	public List<ArticleEnchere> getMesVentes(int no_utilisateur);
+
 	public List<ArticleEnchere> getMesEncheres(int no_utilisateur);
 }
