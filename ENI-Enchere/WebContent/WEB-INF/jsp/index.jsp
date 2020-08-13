@@ -49,7 +49,7 @@
 			 				<li><fmt:message key="txt.price"></fmt:message> : ${articleEnchere.getMontant_enchere()}</li>
 			 				<li><fmt:message key="txt.end_of_auction"></fmt:message> :  ${articleEnchere.getDate_fin_encheres()}</li>
 			 				<li id="num_cat" value="${articleEnchere.getNo_categorie()}"></li>
-			 				<li><fmt:message key="txt.seller"></fmt:message> :  <a href="/ENI-Enchere/voirVendeur?pseudo=${articleEnchere.getPseudo()}">${articleEnchere.getPseudo()}</a></li>
+			 				<li><fmt:message key="txt.seller"></fmt:message> :  <a class="link" href="/ENI-Enchere/voirVendeur?pseudo=${articleEnchere.getPseudo()}">${articleEnchere.getPseudo()}</a></li>
 						</ul>
 			 		</div>
 			 	</div>

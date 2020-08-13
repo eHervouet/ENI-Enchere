@@ -29,7 +29,7 @@
 				 				<li>Échéance : ${aev.date_fin_encheres}</li>
 				 				<li>Prix initial : ${aev.prix_initial}</li>
 				 				<li>Prix de départ : ${aev.prix_vente}</li>
-				 				<li>Dernière enchère : ${aev.montant_enchere} <br/>par : <a href="/ENI-Enchere/voirVendeur?pseudo=${aev.pseudo}">${aev.pseudo}</a></li>
+				 				<li>Dernière enchère : ${aev.montant_enchere} <br/>par : <a class="link" href="/ENI-Enchere/voirVendeur?pseudo=${aev.pseudo}">${aev.pseudo}</a></li>
 							</ul>
 				 		</div>
 					</div>

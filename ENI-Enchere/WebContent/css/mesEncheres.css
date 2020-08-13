@@ -37,3 +37,12 @@ li {
 .texte {
 	color: white;
 }
+
+.link{
+    color: white;
+}
+
+.link:hover{
+    font-weight: bold;
+    color: white;
+}
