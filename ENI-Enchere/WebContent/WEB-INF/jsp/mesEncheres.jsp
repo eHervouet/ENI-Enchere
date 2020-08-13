@@ -21,11 +21,11 @@
 				<c:forEach var="aev" items="${laev}">
 					 <div class="item">
 					 	<div class="fill">
-					 		<img src="${pageContext.request.contextPath}/photos_articles/${aev.path_photo}" alt="image article">
+					 		<img src="/uploaded/img/articles/${aev.path_photo}" alt="image article">
 					 	</div>
 				 		<div class="text">
 				 			<ul id="filter">
-				 				<li class="title"style="text-decoration: underline; list-style-type: none;">${aev.nom_article}</li>
+				 				<li class="title"style="text-decoration: underline; list-style-type: none;"><a class="link" href="/ENI-Enchere/detailVente?no_article=${aev.no_article}">${aev.nom_article}</a></li>
 				 				<li><fmt:message key="txt.deadline"></fmt:message>: ${aev.date_fin_encheres}</li>
 				 				<li><fmt:message key="txt.initial_price"></fmt:message> : ${aev.prix_initial}</li>
 				 				<li><fmt:message key="txt.starting_price"></fmt:message>: ${aev.prix_vente}</li>
@@ -40,11 +40,11 @@
 				<c:forEach var="ae" items="${lae}">
 					 <div class="item">
 					 	<div class="fill">
-					 		<img src="${pageContext.request.contextPath}/photos_articles/${ae.path_photo}" alt="image article">
+					 		<img src="/uploaded/img/articles/${ae.path_photo}" alt="image article">
 					 	</div>
 				 		<div class="text">
 				 			<ul id="filter">
-				 				<li class="title"style="text-decoration: underline; list-style-type: none;">${ae.nom_article}</li>
+				 				<li class="title"style="text-decoration: underline; list-style-type: none;"><a class="link" href="/ENI-Enchere/detailVente?no_article=${ae.no_article}">${ae.nom_article}</a></li>
 				 				<li>Vendu par : <a href="/ENI-Enchere/voirVendeur?pseudo=${um.getUtilisateurByNum(ae.getNo_utilisateur()).getPseudo()}">${um.getUtilisateurByNum(ae.getNo_utilisateur()).getPseudo()}</a></li>
 				 				<li>Échéance : ${ae.date_fin_encheres}</li>
 				 				<li>Prix initial : ${ae.prix_initial}</li>

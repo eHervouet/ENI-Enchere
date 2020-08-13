@@ -45,7 +45,7 @@
 			 		</div>
 			 		<div id="col"class="col" >
 			 			<ul id="filter">
-			 				<li id= "deco"><span id="research">${articleEnchere.getNom_article()}</span></li>
+			 				<li id= "deco"><span id="research"><a class="link" href="/ENI-Enchere/detailVente?no_article=${articleEnchere.no_article}">${articleEnchere.getNom_article()}</a></span></li>
 			 				<li><fmt:message key="txt.price"></fmt:message> : ${articleEnchere.getMontant_enchere()}</li>
 			 				<li><fmt:message key="txt.end_of_auction"></fmt:message> :  ${articleEnchere.getDate_fin_encheres()}</li>
 			 				<li id="num_cat" value="${articleEnchere.getNo_categorie()}"></li>
