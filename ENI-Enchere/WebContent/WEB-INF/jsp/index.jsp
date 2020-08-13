@@ -19,7 +19,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<h2 style="text-align : center; text-decoration : underline;"><fmt:message key="txt.auction_list"></fmt:message></h2>
+				<h2 id="h2_index"><fmt:message key="txt.auction_list"></fmt:message></h2>
 			</div>
 		</div>
 		
@@ -38,12 +38,12 @@
 		</div><br />
 		<div class="row justify-content-center" id="contenant">
 			<c:forEach var="articleEnchere" items="${listeArticleEncheres}">
-			 <div id="myDIV" class="col-lg-5" style="background-color : green; color: white; margin:10px 15px 10px 15px; border:solid grey;">
+			 <div id="myDIV" class="col-lg-5">
 			 	<div class="row">
-			 		<div class="col pl-0 pr-0 fill" style="width:200px; height:200px">
+			 		<div id="col_pl" class="col pl-0 pr-0 fill">
 			 			<img src="/uploaded/img/articles/${articleEnchere.getPath_photo()}" alt="image article">
 			 		</div>
-			 		<div class="col" style="color: white;">
+			 		<div id="col"class="col" >
 			 			<ul id="filter">
 			 				<li id= "deco"><span id="research">${articleEnchere.getNom_article()}</span></li>
 			 				<li><fmt:message key="txt.price"></fmt:message> : ${articleEnchere.getMontant_enchere()}</li>
@@ -57,6 +57,7 @@
 		</c:forEach>	
 		</div>	
 	</div>
+<%@ include file="footer.jsp" %>	
 </body>
 <script>
 $(document).ready(function(){
