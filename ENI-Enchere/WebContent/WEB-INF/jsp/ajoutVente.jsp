@@ -126,6 +126,7 @@
 			</div>
 		</div>
 	</div>
+	<%@ include file="footer.jsp" %>
 </body>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/ajoutVente.js"></script>
 </html>

@@ -22,6 +22,8 @@ public class ArticleEnchere implements Serializable {
 	private float montant_enchere;
 	//table utilisateur
 	private String pseudo;
+	//table catégorie
+	private String libelle;
 	
 	public ArticleEnchere(int no_article, String nom_article, String description, Date date_debut_encheres,
 			Date date_fin_encheres, int prix_initial, int prix_vente, int no_utilisateur, int no_categorie,
@@ -40,6 +42,26 @@ public class ArticleEnchere implements Serializable {
 		this.date_enchere = date_enchere;
 		this.montant_enchere = montant_enchere;
 		this.pseudo = pseudo;
+	}
+	
+	public ArticleEnchere(int no_article, String nom_article, String description, Date date_debut_encheres,
+			Date date_fin_encheres, int prix_initial, int prix_vente, int no_utilisateur, int no_categorie,
+			String path_photo, Date date_enchere, float montant_enchere, String pseudo, String libelle) {
+		super();
+		this.no_article = no_article;
+		this.nom_article = nom_article;
+		this.description = description;
+		this.date_debut_encheres = date_debut_encheres;
+		this.date_fin_encheres = date_fin_encheres;
+		this.prix_initial = prix_initial;
+		this.prix_vente = prix_vente;
+		this.no_utilisateur = no_utilisateur;
+		this.no_categorie = no_categorie;
+		this.path_photo = path_photo;
+		this.date_enchere = date_enchere;
+		this.montant_enchere = montant_enchere;
+		this.pseudo = pseudo;
+		this.libelle = libelle;
 	}
 	
 	public ArticleEnchere(int no_article, String nom_article, Date date_fin_encheres, int no_categorie, String path_photo, float montant_enchere, String pseudo) {
@@ -129,6 +151,14 @@ public class ArticleEnchere implements Serializable {
 	}
 	public void setPseudo(String pseudo) {
 		this.pseudo = pseudo;
+	}
+
+	public String getLibelle() {
+		return libelle;
+	}
+
+	public void setLibelle(String libelle) {
+		this.libelle = libelle;
 	}
 	
 	
