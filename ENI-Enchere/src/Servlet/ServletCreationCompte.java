@@ -1,7 +1,6 @@
 package Servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import java.math.BigInteger; 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import bll.UtilisateurManager;
 import bo.Utilisateur;
@@ -38,6 +41,7 @@ public class ServletCreationCompte extends HttpServlet {
 		String ville = (String) request.getParameter("ville");
 		String code_postal = (String) request.getParameter("code_postal");
 		String mot_de_passe = (String) request.getParameter("mot_de_passe");
+		mot_de_passe = getMd5(mot_de_passe);
 		String telephone = (String) request.getParameter("telephone");
 		String rue = (String) request.getParameter("rue");
 		
@@ -58,5 +62,32 @@ public class ServletCreationCompte extends HttpServlet {
 		
 		rd.forward(request, response);
 	}
+	
+	public static String getMd5(String input) 
+    { 
+        try { 
+  
+            // Static getInstance method is called with hashing MD5 
+            MessageDigest md = MessageDigest.getInstance("MD5"); 
+  
+            // digest() method is called to calculate message digest 
+            //  of an input digest() return array of byte 
+            byte[] messageDigest = md.digest(input.getBytes()); 
+  
+            // Convert byte array into signum representation 
+            BigInteger no = new BigInteger(1, messageDigest); 
+  
+            // Convert message digest into hex value 
+            String hashtext = no.toString(16); 
+            while (hashtext.length() < 32) { 
+                hashtext = "0" + hashtext; 
+            } 
+            return hashtext; 
+        }  
+        // For specifying wrong message digest algorithms 
+        catch (NoSuchAlgorithmException e) { 
+            throw new RuntimeException(e); 
+        } 
+    } 
 
 }

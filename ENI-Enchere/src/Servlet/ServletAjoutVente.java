@@ -1,6 +1,5 @@
 package Servlet;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -69,7 +68,7 @@ public class ServletAjoutVente extends HttpServlet {
 		int no_utilisateur = user.getNo_utilisateur();
 		
 		//get the file chosen by the user
-		Part uploadedFile = request.getPart("photoAUploader"); //path webapps tomcat
+		Part uploadedFile = request.getPart("photoAUploader");
 		String time = String.valueOf(Calendar.getInstance().getTimeInMillis());
 		String fileName = uploadedFile.getSubmittedFileName();
 		fileName = time + fileName.substring(fileName.lastIndexOf("."));
@@ -92,8 +91,7 @@ public class ServletAjoutVente extends HttpServlet {
 			System.out.println("Un problème est survenu lors de la création de l'article " + e);
 		}
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/accueil");
-		rd.forward(request, response);
+		response.sendRedirect("/ENI-Enchere/accueil");
 	}
 
 }

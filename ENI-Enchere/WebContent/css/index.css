@@ -56,3 +56,11 @@ ul {
     text-align : center; 
     text-decoration : underline;
 }
+
+.link{
+    color: white;
+    }
+.link:hover{
+    font-weight: bold;
+    color: white;
+}

@@ -17,7 +17,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-6">
-				<h2>Mes ventes</h2>
+				<h2><fmt:message key="txt.my_sales"></fmt:message></h2>
 				<c:forEach var="aev" items="${laev}">
 					 <div class="item">
 					 	<div class="fill">
@@ -26,17 +26,17 @@
 				 		<div class="text">
 				 			<ul id="filter">
 				 				<li class="title"style="text-decoration: underline; list-style-type: none;">${aev.nom_article}</li>
-				 				<li>Échéance : ${aev.date_fin_encheres}</li>
-				 				<li>Prix initial : ${aev.prix_initial}</li>
-				 				<li>Prix de départ : ${aev.prix_vente}</li>
-				 				<li>Dernière enchère : ${aev.montant_enchere} <br/>par : <a href="/ENI-Enchere/voirVendeur?pseudo=${aev.pseudo}">${aev.pseudo}</a></li>
+				 				<li><fmt:message key="txt.deadline"></fmt:message>: ${aev.date_fin_encheres}</li>
+				 				<li><fmt:message key="txt.initial_price"></fmt:message> : ${aev.prix_initial}</li>
+				 				<li><fmt:message key="txt.starting_price"></fmt:message>: ${aev.prix_vente}</li>
+				 				<li><fmt:message key="txt.last_auction"></fmt:message> : ${aev.montant_enchere} <br/>par : <a class="link" href="/ENI-Enchere/voirVendeur?pseudo=${aev.pseudo}">${aev.pseudo}</a></li>
 							</ul>
 				 		</div>
 					</div>
 				</c:forEach>
 			</div>
 			<div class="col-6">
-				<h2>Mes enchères</h2>
+				<h2><fmt:message key="txt.my_auctions"></fmt:message></h2>
 				<c:forEach var="ae" items="${lae}">
 					 <div class="item">
 					 	<div class="fill">
