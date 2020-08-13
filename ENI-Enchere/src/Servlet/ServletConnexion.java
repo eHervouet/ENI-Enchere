@@ -45,8 +45,9 @@ public class ServletConnexion extends HttpServlet {
 			HttpSession session = request.getSession();
 			Utilisateur utilisateur = um.getUtilisateurByIdentifiant(identifiant);
 			session.setAttribute("utilisateur", utilisateur);
-			RequestDispatcher rd = request.getRequestDispatcher("/accueil");
-			rd.forward(request, response);
+			//RequestDispatcher rd = request.getRequestDispatcher("/accueil");
+			//rd.forward(request, response);
+			response.sendRedirect("/ENI-Enchere/accueil");
 		}
 				
 	}

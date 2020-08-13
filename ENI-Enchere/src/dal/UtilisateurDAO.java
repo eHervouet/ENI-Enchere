@@ -20,4 +20,6 @@ public interface UtilisateurDAO {
 	public Utilisateur modifierUtilisateur(Utilisateur utilisateur);
 
 	public void supprimerUtilisateur(int no_utilisateur);
+
+	public Utilisateur getUtilisateurByNum(int no_utilisateur);
 }

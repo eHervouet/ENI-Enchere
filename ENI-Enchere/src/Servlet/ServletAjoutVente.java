@@ -1,5 +1,6 @@
 package Servlet;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -25,7 +26,6 @@ import bll.CategorieManager;
 import bo.Article;
 import bo.Categorie;
 import bo.Utilisateur;
-
 
 /**
  * Servlet implementation class ServletAjoutVente
@@ -74,8 +74,8 @@ public class ServletAjoutVente extends HttpServlet {
 		String fileName = uploadedFile.getSubmittedFileName();
 		fileName = time + fileName.substring(fileName.lastIndexOf("."));
 		
-		Path folder = Paths.get( getServletContext().getRealPath("/")+"\\photos_articles\\"+fileName);
-				
+		Path folder = Paths.get("C:\\DATA\\Storage\\Uploaded\\img\\articles\\" + fileName);
+		
 		//get the InputStream to store the file somewhere
 		try (InputStream fileInputStream = uploadedFile.getInputStream()) {
 		    Files.copy(fileInputStream, folder, StandardCopyOption.REPLACE_EXISTING);
@@ -87,10 +87,9 @@ public class ServletAjoutVente extends HttpServlet {
 		
 		try{
 			am.nouvelArticle(art);
-			
 		}catch(Exception e)
 		{
-			System.out.println("Un probl�me est survenu lors de la cr�ation de l'article " + e);
+			System.out.println("Un problème est survenu lors de la création de l'article " + e);
 		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/accueil");

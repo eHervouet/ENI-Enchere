@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bll.ArticleEnchereManager;
+import bll.UtilisateurManager;
 import bo.ArticleEnchere;
 import bo.Utilisateur;
 
@@ -31,8 +32,14 @@ public class ServletMesEncheres extends HttpServlet {
 		ArticleEnchereManager aem = new ArticleEnchereManager();
 		HttpSession session = request.getSession();
 		Utilisateur utilisateur = (Utilisateur) session.getAttribute("utilisateur");
+		List<ArticleEnchere> laev = aem.getMesVentes(utilisateur.getNo_utilisateur());
+		request.setAttribute("laev", laev);
+		
 		List<ArticleEnchere> lae = aem.getMesEncheres(utilisateur.getNo_utilisateur());
 		request.setAttribute("lae", lae);
+		
+		UtilisateurManager um = new UtilisateurManager();		
+		request.setAttribute("um", um);
 		
 		rd.forward(request, response);
 	}

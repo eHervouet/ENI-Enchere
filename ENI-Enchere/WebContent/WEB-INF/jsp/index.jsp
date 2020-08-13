@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,21 +16,20 @@
 </head>
 <body>
 <%@ include file="menu.jsp" %>
-
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<h2 style="text-align : center; text-decoration : underline;">Liste des enchères</h2>
+				<h2 style="text-align : center; text-decoration : underline;"><fmt:message key="txt.auction_list"></fmt:message></h2>
 			</div>
 		</div>
 		
 		<div class="row">
 			<div class="col">
-				<label for="search">Filtres :</label>
-				<input id ="search" type="search" name="search" placeholder="Rechercher ..."><br/>
-				<label for="categories">Catégorie :</label>
+				<label for="search"><fmt:message key="txt.filters"></fmt:message> :</label>
+				<input id ="search" type="search" name="search" placeholder="<fmt:message key="txt.research"></fmt:message>"><br/>
+				<label for="categories"><fmt:message key="txt.category"></fmt:message> :</label>
 				<select id="selectCat"  name="categories">
-					<option value="all">Toutes</option>
+					<option value="all"><fmt:message key="txt.all"></fmt:message></option>
 					<c:forEach var="cat" items="${listeCategories}">		
 						<option  value="${cat.no_categorie}">${cat.libelle}</option>	
 					</c:forEach>
@@ -40,24 +41,22 @@
 			 <div id="myDIV" class="col-lg-5" style="background-color : green; color: white; margin:10px 15px 10px 15px; border:solid grey;">
 			 	<div class="row">
 			 		<div class="col pl-0 pr-0 fill" style="width:200px; height:200px">
-			 			<img src="${pageContext.request.contextPath}/photos_articles/${articleEnchere.getPath_photo()}" alt="image article">
+			 			<img src="/uploaded/img/articles/${articleEnchere.getPath_photo()}" alt="image article">
 			 		</div>
 			 		<div class="col" style="color: white;">
 			 			<ul id="filter">
-			 				<li style="text-decoration: underline; list-style-type: none;"><span id="research">${articleEnchere.getNom_article()}</span></li>
-			 				<li>Prix : ${articleEnchere.getMontant_enchere()}</li>
-			 				<li>Fin de l'enchère :  ${articleEnchere.getDate_fin_encheres()}</li>
+			 				<li id= "deco"><span id="research">${articleEnchere.getNom_article()}</span></li>
+			 				<li><fmt:message key="txt.price"></fmt:message> : ${articleEnchere.getMontant_enchere()}</li>
+			 				<li><fmt:message key="txt.end_of_auction"></fmt:message> :  ${articleEnchere.getDate_fin_encheres()}</li>
 			 				<li id="num_cat" value="${articleEnchere.getNo_categorie()}"></li>
-			 				<li>Vendeur :  <a href="/ENI-Enchere/voirVendeur?pseudo=${articleEnchere.getPseudo()}">${articleEnchere.getPseudo()}</a></li>
+			 				<li><fmt:message key="txt.seller"></fmt:message> :  <a href="/ENI-Enchere/voirVendeur?pseudo=${articleEnchere.getPseudo()}">${articleEnchere.getPseudo()}</a></li>
 						</ul>
 			 		</div>
 			 	</div>
 			</div>
 		</c:forEach>	
-		
 		</div>	
 	</div>
-	
 </body>
 <script>
 $(document).ready(function(){

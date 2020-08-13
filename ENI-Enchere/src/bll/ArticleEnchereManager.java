@@ -24,6 +24,9 @@ public class ArticleEnchereManager {
 	public ArticleEnchere getArticleEnchereById(int no_article) {
 		return this.articleEnchereDAO.getArticleEnchereById(no_article);
 	}
+	public List<ArticleEnchere> getMesVentes(int no_utilisateur) {
+		return this.articleEnchereDAO.getMesVentes(no_utilisateur);
+	}
 	public List<ArticleEnchere> getMesEncheres(int no_utilisateur) {
 		return this.articleEnchereDAO.getMesEncheres(no_utilisateur);
 	}

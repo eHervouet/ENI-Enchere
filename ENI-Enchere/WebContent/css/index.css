@@ -20,24 +20,39 @@ li {
 }
 
 ul {
-	margin: 0; 
-	padding: 0;
-	margin-left: 10px;
-	list-style-type: none;
+    margin: 0; 
+    padding: 0;
+    margin-left: 10px;
+    list-style-type: none;
 }
 
 #num_cat{
-	visibility: hidden;
+    visibility: hidden;
 }
 
 #myDIV {
-  box-shadow: 8px 8px 12px #aaa;
+    box-shadow: 8px 8px 12px #aaa;
+    background-color : green;
+    color: white;
+    margin:10px 15px 10px 15px;
+     border:solid grey;
 }
 
-a {
-	color : black;
+#col_pl{
+    width:200px; 
+    height:200px;
+}
+    
+#col{
+    color: white;
 }
 
-a:hover {
-	color : black;
+#deco{
+    text-decoration: underline;
+    list-style-type: none;
+}
+    
+#h2_index{
+    text-align : center; 
+    text-decoration : underline;
 }

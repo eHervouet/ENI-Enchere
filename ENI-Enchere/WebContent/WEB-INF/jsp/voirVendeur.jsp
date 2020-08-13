@@ -16,35 +16,35 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-6">
-				<h1 style="text-decoration : underline;">Mon profil</h1>
+				<h1 style="text-decoration : underline;"><fmt:message key="txt.his_profile"></fmt:message></h1>
 				
-				<div class="label">Pseudo : </div>${utilisateur.pseudo}<br/><br/>
+				<div class="label"><fmt:message key="txt.pseudo"></fmt:message> : </div>${utilisateur.pseudo}<br/><br/>
 				
 				
-				<div class="label">Nom : </div>
+				<div class="label"><fmt:message key="txt.lastname"></fmt:message> : </div>
 				${utilisateur.nom}<br/><br/>
 				
-				<div class="label">Prenom : </div>
+				<div class="label"><fmt:message key="txt.name"></fmt:message> : </div>
 				${utilisateur.prenom}<br/><br/>
 				
-				<div class="label">Email : </div>
+				<div class="label"><fmt:message key="txt.email"></fmt:message> : </div>
 				${utilisateur.email}<br/><br/>
 								
-				<div class="label">Telephone : </div>
+				<div class="label"><fmt:message key="txt.phone"></fmt:message> : </div>
 				${utilisateur.telephone}<br/><br/>
 								
-				<div class="label">Rue : </div>
+				<div class="label"><fmt:message key="txt.street"></fmt:message> : </div>
 				${utilisateur.rue}<br/><br/>
 								
-				<div class="label">Ville : </div>
+				<div class="label"><fmt:message key="txt.city"></fmt:message> : </div>
 				${utilisateur.ville}<br><br/>
 								
-				<div class="label">Code postal : </div>
+				<div class="label"><fmt:message key="txt.postcode"></fmt:message> : </div>
 				${utilisateur.code_postal}<br/><br/>	
 			</div>
 			
 			<div class="col-6">
-				<h1 style="text-decoration : underline;">Mes ventes</h1>
+				<h1 style="text-decoration : underline;"><fmt:message key="txt.his_sales"></fmt:message></h1>
 				<ul>
 					<c:forEach var="article" items="${la}">
 				 		<li><a href="/ENI-Enchere/detailVente?no_article=${article.getNo_article()}">${article.date_debut_encheres} : ${article.nom_article}</a></li>

@@ -147,6 +147,24 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 		
 		return u;
 	}
+	
+	@Override
+	public Utilisateur getUtilisateurByNum(int no_utilisateur) {
+		final String SELECT="SELECT * FROM utilisateurs WHERE no_utilisateur = '"+no_utilisateur+"';";
+		Utilisateur u = null;
+				
+		try(Connection cnx = ConnectionProvider.getConnection())
+		{
+			Statement stmt = cnx.createStatement();
+			ResultSet rs = stmt.executeQuery(SELECT);
+			rs.next();
+			u = new Utilisateur(rs.getInt("no_utilisateur"), rs.getString("pseudo"), rs.getString("nom"), rs.getString("prenom"), rs.getString("email"), rs.getString("telephone"), rs.getString("rue"), rs.getString("code_postal"), rs.getString("ville"), rs.getString("mot_de_passe"), rs.getInt("credit"), rs.getBoolean("administrateur"), true);
+		} catch(Exception e) {
+			System.out.print(e.getMessage());
+		}
+		
+		return u;
+	}
 
 	@Override
 	public Utilisateur modifierUtilisateur(Utilisateur utilisateur) {
