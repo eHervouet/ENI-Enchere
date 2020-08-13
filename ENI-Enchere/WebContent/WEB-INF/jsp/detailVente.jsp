@@ -31,7 +31,7 @@
 					<h2>Détails de la Vente</h2>
 				</div>
 			<div class="col-md-3">
-				<img src="${pageContext.request.contextPath}/photos_articles/${articleEnchere.getPath_photo()}" alt="image article" width="200" height="200">
+				<img src="/uploaded/img/articles/${articleEnchere.getPath_photo()}" alt="image article" width="200" height="200">
 			</div>
 			<div class="col-md-9">
 				<form method="post" action="" class="form-horizontal">

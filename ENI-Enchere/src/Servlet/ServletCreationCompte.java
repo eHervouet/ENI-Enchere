@@ -41,6 +41,7 @@ public class ServletCreationCompte extends HttpServlet {
 		String ville = (String) request.getParameter("ville");
 		String code_postal = (String) request.getParameter("code_postal");
 		String mot_de_passe = (String) request.getParameter("mot_de_passe");
+		String mot_de_passe_confirmation = (String) request.getParameter("mot_de_passe_confirmation");
 		mot_de_passe = getMd5(mot_de_passe);
 		String telephone = (String) request.getParameter("telephone");
 		String rue = (String) request.getParameter("rue");
@@ -49,8 +50,10 @@ public class ServletCreationCompte extends HttpServlet {
 		Utilisateur utilisateur = new Utilisateur(pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, 0, false, false);
 
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/creationCompte.jsp");
-				
-		if(!um.identifiantLibre(pseudo)) {
+		
+		if (!mot_de_passe.contentEquals(getMd5(mot_de_passe_confirmation))) {
+			request.setAttribute("error", "Les deux mot de passe ne sont pas identiques.");
+		} else if(!um.identifiantLibre(pseudo)) {
 			request.setAttribute("error", "L'identifiant n'est pas disponible.");
 		} else if (!um.emailLibre(email)) {
 			request.setAttribute("error", "L'adresse mail indiquée est déjà attribuer à un compte.");
