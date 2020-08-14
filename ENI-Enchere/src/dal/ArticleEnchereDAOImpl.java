@@ -92,7 +92,7 @@ public class ArticleEnchereDAOImpl implements ArticleEnchereDAO {
 		final String SELECT="SELECT   Articles.no_article, nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, prix_vente, UTILISATEURS.no_utilisateur, ARTICLES.no_categorie, nom_article, date_enchere, montant_enchere, pseudo, path_photo, libelle " 
 						+ " FROM Encheres "
 						+ " inner join Articles on Encheres.no_article = Articles.no_article " 
-						+ " inner join UTILISATEURS on UTILISATEURS.no_utilisateur = ENCHERES.no_utilisateur "
+						+ " inner join UTILISATEURS on UTILISATEURS.no_utilisateur = ARTICLES.no_utilisateur "
 						+ " inner join CATEGORIES on ARTICLES.no_categorie = CATEGORIES.no_categorie "
 						+ " WHERE Articles.no_article = "+no_article+";";
 		ArticleEnchere articleEnchere = null;

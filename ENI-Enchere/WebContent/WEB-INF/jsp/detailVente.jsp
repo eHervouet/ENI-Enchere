@@ -31,7 +31,7 @@
 					<h2>Détails de la Vente</h2>
 				</div>
 			<div class="col-md-3">
-				<img src="/uploaded/img/articles/${articleEnchere.getPath_photo()}" alt="image article" width="200" height="200">
+				<img src="/uploaded/img/articles/${articleEnchere.getPath_photo()}" alt="image article" width="240" height="240">
 			</div>
 			<div class="col-md-9">
 				<form method="post" action="" class="form-horizontal">
@@ -124,41 +124,4 @@
 	</div>
 	<%@ include file="footer.jsp" %>
 </body>
-
-<script>
-//affichage de l'image upload
-function readURL(input) {
-	  if (input.files && input.files[0]) {
-	    var reader = new FileReader();
-	    
-	    reader.onload = function(e) {
-	      $('#preview').attr('src', e.target.result);
-	    }
-	    
-	    reader.readAsDataURL(input.files[0]); // convert to base64 string
-	  }
-	}
-
-	$("#photoAUploader").change(function() {
-	  readURL(this);
-	});
-	
-	$( document ).ready(function() {
-		//set la valeur et le min pour les input de date et début et fin
-		var today = new Date().toISOString().split('T')[0];
-		var temp = new Date();
-		temp.setDate(temp.getDate() + 1);
-		var tomorrow = temp.toISOString().split('T')[0];
-		
-		document.getElementsByName("date_deb")[0].setAttribute('min', today);
-		document.getElementsByName("date_deb")[0].setAttribute('value', today);
-		
-		document.getElementsByName("date_fin")[0].setAttribute('min', tomorrow);
-		document.getElementsByName("date_fin")[0].setAttribute('value', tomorrow);
-		
-		
-	});
-	
-	
-</script>
 </html>
